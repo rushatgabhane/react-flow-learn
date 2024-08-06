@@ -47,9 +47,9 @@ const BaseNode = ({
   return (
     <Card
       className={cn(
-        'w-80',
+        'w-80 border-primary',
         containerStyle,
-        isHovered && 'shadow-sm shadow-gray-400'
+        isHovered && 'shadow shadow-primary'
       )}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -71,7 +71,7 @@ const BaseNode = ({
             </div>
           ) : (
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">{nameLabel}</Label>{' '}
+              <Label htmlFor="name">{name}</Label>{' '}
             </div>
           )}
 

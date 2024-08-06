@@ -3,7 +3,7 @@ import BaseNode from './BaseNode';
 import { useUpdateNodeInternals } from 'reactflow';
 
 export const TextNode = ({ id, data }) => {
-  const [name, setName] = useState(data?.text || '{{input}}');
+  const [name, setName] = useState(data?.text);
   const [inputConnections, setInputConnections] = useState();
   const updateNodeInternals = useUpdateNodeInternals();
   const variableRegex = /{{[^{}]*}}/g;

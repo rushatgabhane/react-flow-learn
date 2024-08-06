@@ -90,27 +90,25 @@ export const PipelineUI = () => {
   }, []);
 
   return (
-    <>
-      <div ref={reactFlowWrapper} style={{ width: '100wv', height: '80vh' }}>
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          onConnect={onConnect}
-          onDrop={onDrop}
-          onDragOver={onDragOver}
-          onInit={setReactFlowInstance}
-          nodeTypes={nodeTypes}
-          proOptions={proOptions}
-          snapGrid={[gridSize, gridSize]}
-          connectionLineType="smoothstep"
-        >
-          <Background color="#aaa" gap={gridSize} />
-          <Controls />
-          <MiniMap />
-        </ReactFlow>
-      </div>
-    </>
+    <div className="h-full w-screen" ref={reactFlowWrapper}>
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        onDrop={onDrop}
+        onDragOver={onDragOver}
+        onInit={setReactFlowInstance}
+        nodeTypes={nodeTypes}
+        proOptions={proOptions}
+        snapGrid={[gridSize, gridSize]}
+        connectionLineType="smoothstep"
+      >
+        <Background color="#aaa" gap={gridSize} />
+        <Controls />
+        <MiniMap />
+      </ReactFlow>
+    </div>
   );
 };
