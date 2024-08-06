@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InputConnections from './InputConnections';
 import OutputConnections from './OutputConnections';
 import {
@@ -9,6 +9,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../../ui/select';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '../../ui/card';
 import { AutosizeTextarea } from '../../ui/autoSizeTextArea';
 import { Label } from '../../ui/label';
 import { cn } from '../../../lib/utils';
@@ -26,41 +34,65 @@ const BaseNode = ({
   inputConnections = [],
   outputConnections = [],
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
-    <div className={cn('p-4 w-80 border border-black', containerStyle)}>
+    <Card
+      className={cn(
+        'w-80',
+        containerStyle,
+        isHovered && 'shadow-sm shadow-gray-400'
+      )}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <InputConnections connections={inputConnections} />
-      <div>{title}</div>
+      <CardHeader>
+        <CardTitle className="text-lg">{title}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="grid w-full items-center gap-4">
+          {isNameEditable ? (
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="name">{nameLabel}</Label>
+              <AutosizeTextarea
+                value={name}
+                onChange={handleNameChange}
+                maxHeight={150}
+              />
+            </div>
+          ) : (
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="name">{nameLabel}</Label>{' '}
+            </div>
+          )}
 
-      {isNameEditable ? (
-        <div className="grid w-full gap-1.5">
-          <Label htmlFor="name">{nameLabel}</Label>
-          <AutosizeTextarea
-            value={name}
-            onChange={handleNameChange}
-            maxHeight={150}
-          />
+          {type && (
+            <div className="flex flex-col space-y-1.5">
+              <Label htmlFor="type">{typeLabel}</Label>
+              <Select>
+                <SelectTrigger id="type">
+                  <SelectValue placeholder="Select" />
+                </SelectTrigger>
+                <SelectContent position="popper">
+                  <SelectItem value="Text">Text</SelectItem>
+                  <SelectItem value="File">File</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          )}
         </div>
-      ) : (
-        <div>{name}</div>
-      )}
-
-      {type && (
-        <label>
-          <Select>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder={typeLabel} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem value="Text">Text</SelectItem>
-                <SelectItem value="File">File</SelectItem>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </label>
-      )}
+      </CardContent>
       <OutputConnections connections={outputConnections} />
-    </div>
+    </Card>
   );
 };
 

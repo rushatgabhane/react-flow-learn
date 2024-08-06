@@ -14,7 +14,7 @@ export const DraggableNode = ({ type, label }) => {
     <div
       className={cn(
         type,
-        'cursor-grab min-w-20 h-12 items-center flex rounded justify-center flex-col bg-primary'
+        'cursor-grab min-w-20 h-8 text-xs items-center flex rounded justify-center flex-col bg-primary'
       )}
       onDragStart={(event) => onDragStart(event, type)}
       onDragEnd={(event) => (event.target.style.cursor = 'grab')}
