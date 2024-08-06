@@ -5,8 +5,9 @@ export const LLMNode = ({ id, data }) => {
     <BaseNode
       title="LLM"
       name="This is a LLM"
+      id={id}
       isNameEditable={false}
-      inputConnections={[`{id}-system`, `${id}-prompt`]}
+      defaultInputConnections={[`{id}-system`, `${id}-prompt`]}
       outputConnections={[`${id}-response`]}
     />
   );

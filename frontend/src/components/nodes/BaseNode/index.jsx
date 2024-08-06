@@ -1,28 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import InputConnections from './InputConnections';
 import OutputConnections from './OutputConnections';
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
 } from '../../ui/select';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '../../ui/card';
+
+import { Card, CardContent, CardHeader, CardTitle } from '../../ui/card';
 import { AutosizeTextarea } from '../../ui/autoSizeTextArea';
 import { Label } from '../../ui/label';
 import { cn } from '../../../lib/utils';
+import { useUpdateNodeInternals } from 'reactflow';
 
 const BaseNode = ({
   title,
+  id,
   name = '',
   handleNameChange = () => {},
   nameLabel = 'Name',
@@ -31,7 +26,7 @@ const BaseNode = ({
   handleTypeChange = () => {},
   typeLabel = 'Type',
   containerStyle,
-  inputConnections = [],
+  defaultInputConnections = [],
   outputConnections = [],
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -43,6 +38,33 @@ const BaseNode = ({
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+
+  const [inputConnections, setInputConnections] = useState(defaultInputConnections);
+  const updateNodeInternals = useUpdateNodeInternals();
+  const variableRegex = /{{[^{}]*}}/g;
+
+  const addInputConnections = (value) => {
+    if (!new RegExp(variableRegex).test(value)) {
+      setInputConnections([]);
+      return;
+    }
+
+    const matches = value.match(variableRegex);
+    const connections = matches.map((connection, i) => {
+      updateNodeInternals(id);
+      return `${connection.slice(2, -2).replace(/ /g, '-')}-input`;
+    });
+    setInputConnections(connections);
+  };
+
+  useEffect(() => {
+    addInputConnections(name);
+  }, []);
+
+  const updateInputConnectionsAndName = (e) => {
+    addInputConnections(e.target.value);
+    handleNameChange(e);
+  }
 
   return (
     <Card
@@ -65,7 +87,7 @@ const BaseNode = ({
               <Label htmlFor="name">{nameLabel}</Label>
               <AutosizeTextarea
                 value={name}
-                onChange={handleNameChange}
+                onChange={updateInputConnectionsAndName}
                 maxHeight={200}
               />
             </div>

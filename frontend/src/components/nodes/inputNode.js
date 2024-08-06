@@ -19,6 +19,7 @@ export const InputNode = ({ id, data }) => {
     <BaseNode
       title="Input"
       name={name}
+      id={id}
       handleNameChange={handleNameChange}
       type={inputType}
       handleTypeChange={handleTypeChange}

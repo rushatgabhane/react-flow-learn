@@ -18,11 +18,12 @@ export const OutputNode = ({ id, data }) => {
   return (
     <BaseNode
       title="Output"
+      id={id}
       name={name}
       handleNameChange={handleNameChange}
       type={outputType}
       handleTypeChange={handleTypeChange}
-      inputConnections={[`${id}-value`]}
+      defaultInputConnections={[`${id}-value`]}
     />
   );
 };
