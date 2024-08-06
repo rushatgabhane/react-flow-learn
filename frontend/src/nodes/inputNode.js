@@ -1,7 +1,4 @@
-// inputNode.js
-
 import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
 import BaseNode from './BaseNode';
 
 export const InputNode = ({ id, data }) => {
@@ -26,9 +23,7 @@ export const InputNode = ({ id, data }) => {
       type={inputType}
       handleTypeChange={handleTypeChange}
       containerStyle={{ width: 200, height: 80, border: '1px solid black' }}
-      outputConnections={
-        <Handle type="source" position={Position.Right} id={`${id}-value`} />
-      }
+      outputConnections={[`${id}-value`]}
     />
   );
 };
