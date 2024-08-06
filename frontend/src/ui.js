@@ -11,6 +11,7 @@ import { LLMNode } from './components/nodes/llmNode';
 import { OutputNode } from './components/nodes/outputNode';
 import { TextNode } from './components/nodes/textNode';
 import 'reactflow/dist/style.css';
+import { FileSaveNode } from './components/nodes/fileSave';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -19,6 +20,7 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  fileSave: FileSaveNode,
 };
 
 const selector = (state) => ({

@@ -24,6 +24,7 @@ const BaseNode = ({
   type = '',
   handleTypeChange = () => {},
   typeLabel = 'Type',
+  shouldAllowTypeChange = true,
   containerStyle,
   defaultInputConnections = [],
   outputConnections = [],
@@ -46,7 +47,7 @@ const BaseNode = ({
 
   const addInputConnections = (value) => {
     if (!new RegExp(variableRegex).test(value)) {
-      setInputConnections([]);
+      setInputConnections(defaultInputConnections);
       return;
     }
 
@@ -102,15 +103,21 @@ const BaseNode = ({
           {type && (
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="type">{typeLabel}</Label>
-              <Select onValueChange={handleTypeChange}>
-                <SelectTrigger id="type">
-                  <SelectValue placeholder="Select" />
-                </SelectTrigger>
-                <SelectContent position="popper">
-                  <SelectItem value="Text">Text</SelectItem>
-                  <SelectItem value="File">File</SelectItem>
-                </SelectContent>
-              </Select>
+              {shouldAllowTypeChange ? (
+                <Select onValueChange={handleTypeChange} defaultValue={type}>
+                  <SelectTrigger id="type">
+                    <SelectValue placeholder="Select" />
+                  </SelectTrigger>
+                  <SelectContent position="popper">
+                    <SelectItem value="Text">Text</SelectItem>
+                    <SelectItem value="File">File</SelectItem>
+                  </SelectContent>
+                </Select>
+              ) : (
+                <div className="flex flex-col space-y-1.5 text-muted-foreground">
+                  <Label htmlFor="type">{type}</Label>
+                </div>
+              )}
             </div>
           )}
         </div>

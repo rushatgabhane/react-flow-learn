@@ -14,7 +14,7 @@ export const InputNode = ({ id, data }) => {
       id={id}
       handleNameChange={(e) => setName(e.target.value)}
       type={inputType}
-      handleTypeChange={(e) => setInputType(e.target.value)}
+      handleTypeChange={(e) => setInputType(e)}
       outputConnections={[`${id}-value`]}
     />
   );
