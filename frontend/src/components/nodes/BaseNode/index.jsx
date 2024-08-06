@@ -39,7 +39,9 @@ const BaseNode = ({
     setIsHovered(false);
   };
 
-  const [inputConnections, setInputConnections] = useState(defaultInputConnections);
+  const [inputConnections, setInputConnections] = useState(
+    defaultInputConnections
+  );
   const updateNodeInternals = useUpdateNodeInternals();
   const variableRegex = /{{[^{}]*}}/g;
 
@@ -64,7 +66,7 @@ const BaseNode = ({
   const updateInputConnectionsAndName = (e) => {
     addInputConnections(e.target.value);
     handleNameChange(e);
-  }
+  };
 
   return (
     <Card
@@ -100,7 +102,7 @@ const BaseNode = ({
           {type && (
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="type">{typeLabel}</Label>
-              <Select>
+              <Select onValueChange={handleTypeChange}>
                 <SelectTrigger id="type">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
