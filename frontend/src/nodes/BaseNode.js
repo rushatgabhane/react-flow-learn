@@ -10,10 +10,12 @@ import React from 'react';
 
 const BaseNode = ({
   title,
-  name,
+  name = '',
   handleNameChange,
-  inputType = '',
+  nameLabel = 'Name',
+  type = '',
   handleTypeChange = () => {},
+  typeLabel = 'Type',
   containerStyle,
   inputConnections = () => {},
   outputConnections = () => {},
@@ -26,13 +28,15 @@ const BaseNode = ({
       </div>
       <div>
         <label>
-          Name: <input type="text" value={name} onChange={handleNameChange} />
+          {nameLabel}
+          {': '}
+          <input type="text" value={name} onChange={handleNameChange} />
         </label>
-
-        {inputType && (
+        {type && (
           <label>
-            Type:
-            <select value={inputType} onChange={handleTypeChange}>
+            {typeLabel}
+            {': '}
+            <select value={type} onChange={handleTypeChange}>
               <option value="Text">Text</option>
               <option value="File">File</option>
             </select>
