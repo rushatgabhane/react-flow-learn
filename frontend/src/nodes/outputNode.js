@@ -27,7 +27,7 @@ export const OutputNode = ({ id, data }) => {
       handleTypeChange={handleTypeChange}
       containerStyle={{ width: 200, height: 80, border: '1px solid black' }}
       inputConnections={
-        <Handle type="source" position={Position.Left} id={`${id}-value`} />
+        <Handle type="target" position={Position.Left} id={`${id}-value`} />
       }
     />
   );
