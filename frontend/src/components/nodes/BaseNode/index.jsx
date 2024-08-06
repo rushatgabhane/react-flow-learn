@@ -90,6 +90,7 @@ const BaseNode = ({
                 value={name}
                 onChange={updateInputConnectionsAndName}
                 maxHeight={200}
+                minHeight={30}
               />
             </div>
           ) : (
