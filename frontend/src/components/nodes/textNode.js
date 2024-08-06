@@ -10,6 +10,7 @@ export const TextNode = ({ id, data }) => {
 
   const addInputConnections = (value) => {
     if (!new RegExp(variableRegex).test(value)) {
+      setInputConnections([]);
       return;
     }
 

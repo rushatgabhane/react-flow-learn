@@ -66,7 +66,7 @@ const BaseNode = ({
               <AutosizeTextarea
                 value={name}
                 onChange={handleNameChange}
-                maxHeight={150}
+                maxHeight={200}
               />
             </div>
           ) : (
