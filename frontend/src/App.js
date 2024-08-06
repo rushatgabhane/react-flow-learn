@@ -1,4 +1,4 @@
-import { PipelineToolbar } from './toolbar';
+import { PipelineToolbar } from './components/toolbar';
 import { PipelineUI } from './ui';
 
 function App() {
