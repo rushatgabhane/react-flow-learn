@@ -8,6 +8,7 @@ function InputConnections({ connections = [] }) {
       type="target"
       position={Position.Left}
       id={id}
+      key={id}
       style={{
         top: `${verticalSpacingPercentage * (index + 1)}%`,
         height: '10px',

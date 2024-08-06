@@ -2,13 +2,13 @@ import { useState } from 'react';
 import BaseNode from './BaseNode';
 
 export const InputNode = ({ id, data }) => {
-  const [currName, setCurrName] = useState(
+  const [name, setName] = useState(
     data?.inputName || id.replace('customInput-', 'input_')
   );
   const [inputType, setInputType] = useState(data.inputType || 'Text');
 
   const handleNameChange = (e) => {
-    setCurrName(e.target.value);
+    setName(e.target.value);
   };
 
   const handleTypeChange = (e) => {
@@ -18,7 +18,7 @@ export const InputNode = ({ id, data }) => {
   return (
     <BaseNode
       title="Input"
-      name={currName}
+      name={name}
       handleNameChange={handleNameChange}
       type={inputType}
       handleTypeChange={handleTypeChange}

@@ -8,6 +8,7 @@ function OutputConnections({ connections = [] }) {
       type="source"
       position={Position.Right}
       id={id}
+      key={id}
       style={{
         top: `${verticalSpacingPercentage * (index + 1)}%`,
         height: '10px',

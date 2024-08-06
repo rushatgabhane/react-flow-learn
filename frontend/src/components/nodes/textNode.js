@@ -3,7 +3,6 @@ import BaseNode from './BaseNode';
 import { useUpdateNodeInternals } from 'reactflow';
 
 export const TextNode = ({ id, data }) => {
-  console.log('[id]: ', id);
   const [name, setName] = useState(data?.text || '{{input}}');
   const [inputConnections, setInputConnections] = useState();
   const updateNodeInternals = useUpdateNodeInternals();
