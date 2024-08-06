@@ -14,7 +14,6 @@ export const TextNode = ({ id, data }) => {
       name={name}
       nameLabel="Text"
       handleNameChange={handleTextChange}
-      containerStyle={{ width: 200, height: 80, border: '1px solid black' }}
       outputConnections={[`${id}-output`]}
     />
   );

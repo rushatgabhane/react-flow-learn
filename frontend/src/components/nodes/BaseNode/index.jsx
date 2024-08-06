@@ -11,6 +11,7 @@ import {
 } from '../../ui/select';
 import { AutosizeTextarea } from '../../ui/autoSizeTextArea';
 import { Label } from '../../ui/label';
+import { cn } from '../../../lib/utils';
 
 const BaseNode = ({
   title,
@@ -26,7 +27,7 @@ const BaseNode = ({
   outputConnections = [],
 }) => {
   return (
-    <div style={containerStyle}>
+    <div className={cn('p-4 w-80 border border-black', containerStyle)}>
       <InputConnections connections={inputConnections} />
       <div>{title}</div>
 

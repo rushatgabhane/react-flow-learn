@@ -22,7 +22,6 @@ export const OutputNode = ({ id, data }) => {
       handleNameChange={handleNameChange}
       type={outputType}
       handleTypeChange={handleTypeChange}
-      containerStyle={{ width: 200, height: 80, border: '1px solid black' }}
       inputConnections={[`${id}-value`]}
     />
   );
