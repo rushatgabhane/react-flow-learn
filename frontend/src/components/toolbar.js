@@ -2,7 +2,7 @@ import { DraggableNode } from './draggableNode';
 
 export const PipelineToolbar = () => {
   return (
-    <div className="flex gap-4 justify-center p-4">
+    <div className="flex gap-4 justify-center p-4 shadow-md">
       <DraggableNode type="customInput" label="Input" />
       <DraggableNode type="llm" label="LLM" />
       <DraggableNode type="customOutput" label="Output" />
@@ -10,8 +10,3 @@ export const PipelineToolbar = () => {
     </div>
   );
 };
-
-{
-  /* <div style={{ marginTop: '20px', display: 'flex', flexWrap: 'wrap', gap: '10px' }}> */
-}
-//
