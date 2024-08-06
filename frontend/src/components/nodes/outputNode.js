@@ -7,22 +7,14 @@ export const OutputNode = ({ id, data }) => {
   );
   const [outputType, setOutputType] = useState(data.outputType || 'Text');
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-
-  const handleTypeChange = (e) => {
-    setOutputType(e.target.value);
-  };
-
   return (
     <BaseNode
       title="Output"
       id={id}
       name={name}
-      handleNameChange={handleNameChange}
+      handleNameChange={(e) => setName(e.target.value)}
       type={outputType}
-      handleTypeChange={handleTypeChange}
+      handleTypeChange={(e) => setOutputType(e.target.value)}
       defaultInputConnections={[`${id}-value`]}
     />
   );

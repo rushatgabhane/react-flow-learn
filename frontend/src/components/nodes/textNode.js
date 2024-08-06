@@ -3,6 +3,7 @@ import BaseNode from './BaseNode';
 
 export const TextNode = ({ id, data }) => {
   const [name, setName] = useState(data?.text);
+
   return (
     <BaseNode
       title="Text"
