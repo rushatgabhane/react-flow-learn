@@ -33,12 +33,16 @@ function SubmitButton() {
         className="ml-auto min-w-20"
         size="sm"
         onClick={() => {
-          getGraphDetails(nodes, edges).then((data) => {
-            setEdgeCount(data.num_edges);
-            setNodeCount(data.num_nodes);
-            setIsAcyclic(data.is_dag);
-            setShowModal(true);
-          });
+          getGraphDetails(nodes, edges)
+            .then((data) => {
+              setEdgeCount(data.num_edges);
+              setNodeCount(data.num_nodes);
+              setIsAcyclic(data.is_dag);
+              setShowModal(true);
+            })
+            .catch((error) => {
+              console.error('Error getting graph details:', error);
+            });
         }}
       >
         Submit
