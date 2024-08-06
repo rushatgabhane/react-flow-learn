@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import BaseNode from './BaseNode';
 
 export const MultiplexNode = ({ id, data }) => {
+  const [name, setName] = useState(data?.name || '');
+
   return (
     <BaseNode
       title="Multiplexer"
@@ -12,7 +15,9 @@ export const MultiplexNode = ({ id, data }) => {
         `${id}-mux-input-3`,
         `${id}-mux-input-4`,
       ]}
-      isNameEditable={false}
+      nameLabel="Logic"
+      name={name}
+      handleNameChange={(e) => setName(e.target.value)}
     />
   );
 };

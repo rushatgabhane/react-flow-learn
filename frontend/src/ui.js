@@ -13,6 +13,9 @@ import { TextNode } from './components/nodes/textNode';
 import 'reactflow/dist/style.css';
 import { FileSaveNode } from './components/nodes/fileSave';
 import { MultiplexNode } from './components/nodes/multiplexNode';
+import { DemultiplexNode } from './components/nodes/demultiplexNode';
+import { FileJoinerNode } from './components/nodes/fileJoinerNode';
+import { AnotherLLMNode } from './components/nodes/anotherLLM';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -23,6 +26,9 @@ const nodeTypes = {
   text: TextNode,
   fileSave: FileSaveNode,
   multiplex: MultiplexNode,
+  demultiplex: DemultiplexNode,
+  fileJoiner: FileJoinerNode,
+  anotherLLM: AnotherLLMNode,
 };
 
 const selector = (state) => ({
