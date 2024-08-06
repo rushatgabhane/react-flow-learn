@@ -53,10 +53,10 @@ function SubmitButton() {
           <AlertDialogHeader>
             <AlertDialogTitle>API response</AlertDialogTitle>
             <AlertDialogDescription>
-              Number of edges: {edgeCount}
+              Number of nodes: {nodeCount}
             </AlertDialogDescription>
             <AlertDialogDescription>
-              Number of nodes: {nodeCount}
+              Number of edges: {edgeCount}
             </AlertDialogDescription>
             <AlertDialogDescription>
               Is the directed graph acyclic: {isAcyclic ? 'Yes' : 'No'}
