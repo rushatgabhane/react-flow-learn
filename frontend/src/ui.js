@@ -10,7 +10,6 @@ import { InputNode } from './components/nodes/inputNode';
 import { LLMNode } from './components/nodes/llmNode';
 import { OutputNode } from './components/nodes/outputNode';
 import { TextNode } from './components/nodes/textNode';
-
 import 'reactflow/dist/style.css';
 
 const gridSize = 20;
