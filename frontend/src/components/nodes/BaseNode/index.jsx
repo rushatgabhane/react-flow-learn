@@ -1,15 +1,16 @@
 import React from 'react';
-import InputConnections from './inputConnections';
-import OutputConnections from './outputConnections';
+import InputConnections from './InputConnections';
+import OutputConnections from './OutputConnections';
 import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '../../ui/select';
+import { AutosizeTextarea } from '../../ui/autoSizeTextArea';
+import { Label } from '../../ui/label';
 
 const BaseNode = ({
   title,
@@ -30,11 +31,14 @@ const BaseNode = ({
       <div>{title}</div>
 
       {isNameEditable ? (
-        <label>
-          {nameLabel}
-          {': '}
-          <input type="text" value={name} onChange={handleNameChange} />
-        </label>
+        <div className="grid w-full gap-1.5">
+          <Label htmlFor="name">{nameLabel}</Label>
+          <AutosizeTextarea
+            value={name}
+            onChange={handleNameChange}
+            maxHeight={150}
+          />
+        </div>
       ) : (
         <div>{name}</div>
       )}
