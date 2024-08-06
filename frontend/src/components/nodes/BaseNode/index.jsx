@@ -1,6 +1,15 @@
 import React from 'react';
-import InputConnections from './InputConnections';
-import OutputConnections from './OutputConnections';
+import InputConnections from './inputConnections';
+import OutputConnections from './outputConnections';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from '../../ui/select';
 
 const BaseNode = ({
   title,
@@ -19,6 +28,7 @@ const BaseNode = ({
     <div style={containerStyle}>
       <InputConnections connections={inputConnections} />
       <div>{title}</div>
+
       {isNameEditable ? (
         <label>
           {nameLabel}
@@ -31,12 +41,17 @@ const BaseNode = ({
 
       {type && (
         <label>
-          {typeLabel}
-          {': '}
-          <select value={type} onChange={handleTypeChange}>
-            <option value="Text">Text</option>
-            <option value="File">File</option>
-          </select>
+          <Select>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder={typeLabel} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="Text">Text</SelectItem>
+                <SelectItem value="File">File</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </label>
       )}
       <OutputConnections connections={outputConnections} />

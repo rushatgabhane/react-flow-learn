@@ -1,4 +1,3 @@
-import './App.css';
 import { PipelineToolbar } from './toolbar';
 import { PipelineUI } from './ui';
 
