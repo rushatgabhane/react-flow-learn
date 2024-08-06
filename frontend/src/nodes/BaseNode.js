@@ -13,6 +13,7 @@ const BaseNode = ({
   name = '',
   handleNameChange,
   nameLabel = 'Name',
+  isNameEditable = true,
   type = '',
   handleTypeChange = () => {},
   typeLabel = 'Type',
@@ -27,11 +28,16 @@ const BaseNode = ({
         <span>{title}</span>
       </div>
       <div>
-        <label>
-          {nameLabel}
-          {': '}
-          <input type="text" value={name} onChange={handleNameChange} />
-        </label>
+        {isNameEditable ? (
+          <label>
+            {nameLabel}
+            {': '}
+            <input type="text" value={name} onChange={handleNameChange} />
+          </label>
+        ) : (
+          <div>{name}</div>
+        )}
+
         {type && (
           <label>
             {typeLabel}
