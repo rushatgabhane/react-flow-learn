@@ -8,7 +8,11 @@ function OutputConnections({ connections = [] }) {
       type="source"
       position={Position.Right}
       id={id}
-      style={{ top: `${verticalSpacingPercentage * (index + 1)}%` }}
+      style={{
+        top: `${verticalSpacingPercentage * (index + 1)}%`,
+        height: '10px',
+        width: '10px',
+      }}
     />
   ));
 }

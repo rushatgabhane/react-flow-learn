@@ -8,7 +8,11 @@ function InputConnections({ connections = [] }) {
       type="target"
       position={Position.Left}
       id={id}
-      style={{ top: `${verticalSpacingPercentage * (index + 1)}%` }}
+      style={{
+        top: `${verticalSpacingPercentage * (index + 1)}%`,
+        height: '10px',
+        width: '10px',
+      }}
     />
   ));
 }
