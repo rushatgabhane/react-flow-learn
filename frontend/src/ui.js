@@ -12,6 +12,7 @@ import { OutputNode } from './components/nodes/outputNode';
 import { TextNode } from './components/nodes/textNode';
 import 'reactflow/dist/style.css';
 import { FileSaveNode } from './components/nodes/fileSave';
+import { MultiplexNode } from './components/nodes/multiplexNode';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -21,6 +22,7 @@ const nodeTypes = {
   customOutput: OutputNode,
   text: TextNode,
   fileSave: FileSaveNode,
+  multiplex: MultiplexNode,
 };
 
 const selector = (state) => ({

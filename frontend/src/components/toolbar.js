@@ -10,6 +10,7 @@ export const PipelineToolbar = () => {
         <DraggableNode type="text" label="Text" />
         <DraggableNode type="llm" label="LLM" />
         <DraggableNode type="fileSave" label="File Save" />
+        <DraggableNode type="multiplex" label="Mux Circuit" />
       </div>
       <SubmitButton />
     </div>
